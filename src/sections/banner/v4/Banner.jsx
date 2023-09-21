@@ -323,7 +323,7 @@ const Banner = () => {
                   Minimum Buy: {softCap} {tokenSymbol}
                 </li>
                 <li>
-                  Maximim Buy: {hardCap} {tokenSymbol}
+                Maximum Buy: {hardCap} {tokenSymbol}
                 </li>
               </ul>
             </div>
