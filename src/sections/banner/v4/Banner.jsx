@@ -15,10 +15,10 @@ import Progressbar from "../../../components/progressbar/Progressbar";
 import Countdown from "../../../components/countdown/Countdown";
 import Dropdown from "../../../components/dropdown/Dropdown";
 import { useState, useEffect } from "react";
-
+import TokenSaleInfo from "../tokenInfo"
 
 import Data from "../../../assets/data/bannarV1";
-import TokenSaleInfo from "../tokenInfo";
+import TokenSalesInfo from "../tokenInfo";
 import TokenInfo from "../../../components/tokenInfo/TokenInfo";
 import {
   useAccount,
@@ -76,7 +76,6 @@ const Banner = () => {
   const [isBuyNow, setIsBuyNow] = useState(false);
   const queryParams = new URLSearchParams(location.search);
   const refParam = queryParams.get('href');
-  console.log("refeeerence",refParam)
 
   const buyNowHandle = () => {
     setIsBuyNow(!isBuyNow);
@@ -108,21 +107,21 @@ const Banner = () => {
   const { data: tokenSymbolData } = useContractRead({
     ...tokenSymbolCall,
   });
-  const { data: presaleTokenAmountData } = useContractRead({
-    ...presaleTokenAmountCall,
-  });
-  const { data: totalSoldData } = useContractRead({ ...totalSoldCall });
-  const { data: currentStageIdData } = useContractRead({
-    ...currentStageIdCall,
-  });
-  const { data: currentStageInfoData } = useContractRead({
-    ...currentStageInfoCall,
-    args: [currentStageIdData],
-  });
+  // const { data: presaleTokenAmountData } = useContractRead({
+  //   ...presaleTokenAmountCall,
+  // });
+  // const { data: totalSoldData } = useContractRead({ ...totalSoldCall });
+  // const { data: currentStageIdData } = useContractRead({
+  //   ...currentStageIdCall,
+  // });
+  // const { data: currentStageInfoData } = useContractRead({
+  //   ...currentStageInfoCall,
+  //   args: [currentStageIdData],
+  // });
 
   const { data: softCapData } = useContractRead({ ...softCapCall });
   const { data: hardCapData } = useContractRead({ ...hardCapCall });
-  const { data: totalFundData } = useContractRead({ ...totalFundCall });
+  // const { data: totalFundData } = useContractRead({ ...totalFundCall });
   const { data: activeStage } = useContractRead({ ...getActivePhase })
   const { data: getActivePhaseData } = useContractRead({
     ...getActivePhaseDetails,
@@ -132,15 +131,12 @@ const Banner = () => {
     ...bnbToToken,
     args: [parseEther(paymentPrice.toString()),activeStage],
     onSuccess(data) {
-      console.log("heackkkker",data)
       setTokenAmountRex(data)
    },
    onError(err) {
-    console.log("hackkkkkkerrrr",err)
       
    },
   })
-  console.log("dfghfg",tokenAmountRex)
 
   
   // const { isFetching, refetch: readContract } = useContractRead({
@@ -202,21 +198,21 @@ const Banner = () => {
         setPresaleToken(tmp);
       }
 
-      if (totalSoldData) {
-        let tmp = formatEther(totalSoldData);
-        setTokenSold(tmp.toString());
-      }
+      // if (totalSoldData) {
+      //   let tmp = formatEther(totalSoldData);
+      //   setTokenSold(tmp.toString());
+      // }
 
-      if (currentStageIdData) {
-        setCurrentStage(currentStageIdData.toString());
-      }
+      // if (currentStageIdData) {
+      //   setCurrentStage(currentStageIdData.toString());
+      // }
 
-      if (currentStageInfoData) {
-        setCurrentBonus(currentStageInfoData[1]?.toString());
-        let tmp = formatEther(currentStageInfoData[2]);
-        setCurrentPrice(tmp);
-        setStageEnd(currentStageInfoData[4].toString());
-      }
+      // if (currentStageInfoData) {
+      //   setCurrentBonus(currentStageInfoData[1]?.toString());
+      //   let tmp = formatEther(currentStageInfoData[2]);
+      //   setCurrentPrice(tmp);
+      //   setStageEnd(currentStageInfoData[4].toString());
+      // }
 
       if (softCapData) {
         console.log(softCapData)
@@ -229,17 +225,16 @@ const Banner = () => {
         setHardCap(tmp.toString());
       }
 
-      if (totalFundData) {
-        let tmp = formatEther(totalFundData);
-        setTotalFund(tmp.toString());
-      }
+      // if (totalFundData) {
+      //   let tmp = formatEther(totalFundData);
+      //   setTotalFund(tmp.toString());
+      // }
       if(getActivePhaseData){
       let supply = parseInt(getActivePhaseData[3])
       let max = parseInt(getActivePhaseData[3])
 
       let _tokenPercent = parseInt(supply* 100 / max);
       setTokenPercent(_tokenPercent);
-      console.log("rawwwwwwwwwwwwwwwwwrrrrrr",_tokenPercent)
       if (_tokenPercent > 100) {
         setTokenPercent(100);
       }
@@ -269,6 +264,7 @@ const Banner = () => {
   const handlePaymentInput = (e) => {
     let _inputValue = e.target.value;
     setPaymentAmount(_inputValue);
+    setPaymentPrice(_inputValue);
 
     if (_inputValue >= currentPrice) {
       let _amount = parseInt(_inputValue / currentPrice);
@@ -280,21 +276,19 @@ const Banner = () => {
       let _totalAmount = _amount + _bonusAmount;
       setTotalAmount(_totalAmount);
 
-      if (_inputValue != "" && _inputValue >= 0) {
-        setPaymentPrice(_inputValue);
-      }
+      // if (_inputValue != "") {
+      //   setPaymentPrice(_inputValue);
+      // }
     }
   };
 
   const buyToken = () => {
-    if (paymentAmount != "" && paymentAmount >= currentPrice) {
-      console.log("payment amount", paymentAmount)
-      console.log("payment proce", parseEther(paymentPrice.toString()))
+    if (paymentAmount != "" ) {
+      
        if(refParam){
-        console.log("referece")
         call();
        }else{
-        console.log("simplke")
+        
         write();
        }
       
@@ -422,7 +416,7 @@ const Banner = () => {
                         </div>
                       </div>
 
-                      
+                
 
                       <Button large onClick={buyToken}>
                         Approve
@@ -478,7 +472,7 @@ const Banner = () => {
         </button>
       </div>
       <div>
-      <TokenSaleInfo/> 
+        <TokenSaleInfo></TokenSaleInfo>
       </div>
       <div className="gittu-banner-slider">
         <SmoothSlider />

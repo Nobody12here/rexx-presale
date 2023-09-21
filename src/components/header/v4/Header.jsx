@@ -78,7 +78,7 @@ const Header = () => {
                   </li>
                   <li>
                     <a
-                      href="https://Instagram.com/rexxcoin.official/"
+                      href="https://www.instagram.com/rexxcoin.official/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -87,7 +87,7 @@ const Header = () => {
                   </li>
                   <li>
                     <a
-                      href="https://facebook.com/rexxcoin.official/"
+                      href="https://www.facebook.com/RexxCoin"
                       target="_blank"
                       rel="noreferrer"
                     >
