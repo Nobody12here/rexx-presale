@@ -422,18 +422,7 @@ const Banner = () => {
                         </div>
                       </div>
 
-                      <ul className="token-info-list mb-35">
-                        <li>
-                          <p>Bonus</p>
-                          <p>{currentBonus}%</p>
-                        </li>
-                        <li>
-                          <p>Total Amount</p>
-                          <p>
-                            {buyAmount} + {bonusAmount} Bonus
-                          </p>
-                        </li>
-                      </ul>
+                      
 
                       <Button large onClick={buyToken}>
                         Approve
