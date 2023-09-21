@@ -8,7 +8,7 @@ import PresaleContractAbi from "./PresaleContractAbi.json";
 const tokenContractAddress = "0x1C07B56d1765D15Aa9d28C5e6cfe2cC2A765b27b";
 
 //token presale contract address
-const presaleContractAddress = "0xeA783E5Bb2f9b792F271bec7a5de605315108a68";
+const presaleContractAddress = "0x790Fe039892b20681172Ba08719b0245056e48b2";
 
 //payment with (eg. ETH, BNB, MATIC etc.)
 export const payWith = "BNB";
