@@ -29,6 +29,13 @@
     flex: none; /* Reset flex value for mobile */
     width: 100%; /* Full width for mobile columns */
   }
+  .exchange{
+    margin: 8px;
+    width: auto;
+  }
+  .exchange > h2{
+      font-size: 24px;
+  }
 }
 .token-sales-info {
   background-color: black; /* Black background */

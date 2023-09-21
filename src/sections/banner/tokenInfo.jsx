@@ -103,9 +103,9 @@ function TokenSalesInfo() {
   return (
     <>
       <div className="container exchange" style={{ flex: 1,marginTop:'24px' }}>
-        <h2 style={{ fontSize: '32px' }}>Public Exchange Listing</h2>
+        <h2 style={{ fontSize: '24px' }}>Public Exchange Listing</h2>
         <ul>
-          <li>Token Sale Price on Exchange Listing: $0.1000 per token</li>
+          <li>Token Price on Exchange Listing: $0.1000 </li>
           <li>Exchange Listing Date: March 15, 2024</li>
         </ul>
       </div>
