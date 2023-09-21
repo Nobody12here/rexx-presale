@@ -89,8 +89,8 @@ const Banner = () => {
   const [stageEnd, setStageEnd] = useState();
   const [presaleToken, setPresaleToken] = useState(70000000);
   const [tokenSymbol, setTokenSymbol] = useState("REXX");
-  const [softCap, setSoftCap] = useState("400");
-  const [hardCap, setHardCap] = useState("1000");
+  const [softCap, setSoftCap] = useState("0");
+  const [hardCap, setHardCap] = useState("0");
   const [totalFund, setTotalFund] = useState("20");
   const [paymentPrice, setPaymentPrice] = useState(0);
   const [paymentAmount, setPaymentAmount] = useState();
