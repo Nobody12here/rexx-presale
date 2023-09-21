@@ -319,12 +319,8 @@ const Banner = () => {
 
               <ul className="gittu-banner-list">
                 <li>Total Supply: {presaleToken}</li>
-                <li>
-                  Minimum Buy: {softCap} {tokenSymbol}
-                </li>
-                <li>
-                Maximum Buy: {hardCap} {tokenSymbol}
-                </li>
+                
+        
               </ul>
             </div>
           </div>
