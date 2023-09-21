@@ -5,7 +5,7 @@ import TokenContractAbi from "./TokenContractAbi.json";
 import PresaleContractAbi from "./PresaleContractAbi.json";
 
 //token contract address
-const tokenContractAddress = "0x1C07B56d1765D15Aa9d28C5e6cfe2cC2A765b27b";
+const tokenContractAddress = "0xC0413e59e251AF96ce1c0e46A3820Ce57e03291C";
 
 //token presale contract address
 const presaleContractAddress = "0xfE0A103db1964B5207A4311e8CEa6955fE630395";
@@ -26,6 +26,8 @@ export const tokenNameCall = {
   watch: true,
 };
 
+
+
 //token symbol read
 export const tokenSymbolCall = {
   ...tokenContractConfig,
@@ -38,6 +40,21 @@ export const presaleContractConfig = {
   address: presaleContractAddress,
   abi: PresaleContractAbi,
 };
+
+//get ActivePhase read
+export const getActivePhase = {
+  ...presaleContractConfig,
+  functionName: "getActivePhase",
+  watch: true,
+
+}
+
+// get active phase details read
+export const getActivePhaseDetails = {
+  ...presaleContractConfig,
+  functionName: "presalePhases",
+  watch: true
+}
 
 //presale token amount read
 export const presaleTokenAmountCall = {
@@ -77,14 +94,20 @@ export const currentStageInfoCall = {
 //soft cap read
 export const softCapCall = {
   ...presaleContractConfig,
-  functionName: "maxbuyToken",
+  functionName: "minbuyToken",
+  watch: true,
+};
+//BNB to token read
+export const bnbToToken = {
+  ...presaleContractConfig,
+  functionName: "bnbToToken",
   watch: true,
 };
 
 //hard cap read
 export const hardCapCall = {
   ...presaleContractConfig,
-  functionName: "minBuyToken",
+  functionName: "maxbuyToken",
   watch: true,
 };
 
@@ -98,7 +121,14 @@ export const totalFundCall = {
 //buy token write
 export const buyTokenCall = {
   ...presaleContractConfig,
-  functionName: "buyToken",
+  functionName: "buyTokens",
+  watch: true,
+};
+
+//buy token write
+export const buyTokenReference = {
+  ...presaleContractConfig,
+  functionName: "buyTokensWithReferral",
   watch: true,
 };
 
