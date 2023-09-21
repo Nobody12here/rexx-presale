@@ -3,7 +3,7 @@ import './tokenInfoStyle.css';
 
 function SalePhase({ title, totalTokens, price, startDate, endDate }) {
   return (
-    <li>
+    <li >
       <div className='phase'>
       <div style={{ borderBottom: "2px solid #3c1963", paddingBottom: "8px" }}>
   <strong>{title}</strong>: {totalTokens} tokens
@@ -102,7 +102,14 @@ function TokenSalesInfo() {
 
   return (
     <>
-      <div className="token-sales-info">
+      <div className="container exchange" style={{ flex: 1,marginTop:'24px' }}>
+        <h2 style={{ fontSize: '32px' }}>Public Exchange Listing</h2>
+        <ul>
+          <li>Token Sale Price on Exchange Listing: $0.1000 per token</li>
+          <li>Exchange Listing Date: March 15, 2024</li>
+        </ul>
+      </div>
+      <div className="token-sales-info" style={{display:'flex'}}>
         <div className="column">
           <h3>ICO SALE</h3>
           <ul>
@@ -113,7 +120,7 @@ function TokenSalesInfo() {
         </div>
         <div className="column">
           <h3>IDO SALE</h3>
-          <ul>
+          <ul style={{display:"flex",flexDirection:"column"}}>
             {idoPhases.map((phase, index) => (
               <SalePhase key={index} {...phase} />
             ))}
@@ -121,20 +128,17 @@ function TokenSalesInfo() {
         </div>
         <div className="column">
           <h3>IEO SALE</h3>
-          <ul>
+          <ul style={{display:"flex",flexDirection:"column"}}>
             {ieoPhases.map((phase, index) => (
               <SalePhase key={index} {...phase} />
             ))}
           </ul>
+          
         </div>
+        
       </div>
-      <div className="container">
-        <h2 style={{ fontSize: '32px' }}>Public Exchange Listing</h2>
-        <ul>
-          <li>Token Sale Price on Exchange Listing: $0.1000 per token</li>
-          <li>Exchange Listing Date: March 15, 2024</li>
-        </ul>
-      </div>
+      
+      
     </>
   );
 }
