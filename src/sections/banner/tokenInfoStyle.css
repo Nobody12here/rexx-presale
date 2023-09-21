@@ -1,0 +1,25 @@
+/* TokenSalesInfo.css */
+.token-sales-info {
+  background-color: black; /* Black background */
+  color: white; /* White text color */
+  padding: 20px;
+  
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+/* Style different sections as needed */
